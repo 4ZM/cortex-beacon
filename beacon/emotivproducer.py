@@ -1,7 +1,6 @@
 from twisted.internet import protocol, reactor, endpoints, interfaces
 from emokit import emotiv
 import gevent
-import time
 
 sensor_names = { 'X', 'Y',
                  'F3', 'FC5', 'AF3', 'F7', 'T7', 'P7',
@@ -36,8 +35,9 @@ class EmotivProducer:
                 print "Disconnected client. Ctrl-C again to stop the server."
                 return
             sensors = packet.sensors
-            data_str = ",".join(str(sensors[x]['value']) for x in sensor_names)
-            self._proto.transport.write(data_str + '\n')
+            value_str = ",".join(str(sensors[x]['value']) for x in sensor_names)
+            quality_str = ",".join(str(sensors[x]['quality']) for x in sensor_names)
+            self._proto.transport.write(",".join([value_str, quality_str]) + '\n')
 
     def stopProducing(self):
         self._headset.close()
