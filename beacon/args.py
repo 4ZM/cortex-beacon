@@ -7,7 +7,9 @@ def parse_args():
 Cortext Beacon:
 A server that provides emo brain data over tcp
 
-Format is this:
+Format: all values separated by ',' followed by all qualities
+X,Y,F3,FC5,AF3,F7,T7,P7,O1,O2,P8,T8,F8,AF4,FC6,F4,Unknown,... again for quality
+
 <F3>,<O1>,...
 """,
     formatter_class=argparse.RawTextHelpFormatter)
