@@ -1,3 +1,6 @@
+# Need to import this first to get twisted to play nice with gevent
+import geventreactor; geventreactor.install()
+
 from twisted.internet import protocol, reactor, endpoints, interfaces
 
 from mockproducer import MockProducer

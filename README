@@ -4,3 +4,4 @@ Dependencies:
 
 * Twisted - https://twistedmatrix.com
 * Emokit - https://github.com/openyou/emokit
+* geventreactor (included) - https://github.com/inportb/playground/tree/master/Pinako/geventreactor
