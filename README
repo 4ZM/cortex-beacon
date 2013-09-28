@@ -3,3 +3,4 @@ Server that sends data from an emotiv EEG headset
 Dependencies:
 
 * Twisted - https://twistedmatrix.com
+* Emokit - https://github.com/openyou/emokit
