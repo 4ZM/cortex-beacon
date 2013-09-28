@@ -1,10 +1,11 @@
 from twisted.internet import protocol, reactor, endpoints, interfaces
 
 from mockproducer import MockProducer
+from emotivproducer import EmotivProducer
 
 class BeaconServer(protocol.Protocol):
     def __init__(self, mock):
-        self._producer = MockProducer(self, 10) if mock else MockProducer(self, 2)
+        self._producer = MockProducer(self, 10) if mock else EmotivProducer(self)
         
     def connectionMade(self):
         self.transport.write("An apple a day keeps the doctor away\r\n")
