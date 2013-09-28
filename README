@@ -1,1 +1,5 @@
 Server that sends data from an emotiv EEG headset
+
+Dependencies:
+
+* Twisted - https://twistedmatrix.com
