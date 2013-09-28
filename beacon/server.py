@@ -3,12 +3,14 @@ import geventreactor; geventreactor.install()
 
 from twisted.internet import protocol, reactor, endpoints, interfaces
 
-from mockproducer import MockProducer
-from emotivproducer import EmotivProducer
-
 class BeaconServer(protocol.Protocol):
     def __init__(self, mock):
-        self._producer = MockProducer(self, 10) if mock else EmotivProducer(self)
+        if mock:
+            import mockproducer 
+            self._producer = mockproducer.MockProducer(self, 17*2)
+        else:
+            import emotivproducer
+            self._producer = emotivproducer.EmotivProducer(self)
         
     def connectionMade(self):
         self.transport.registerProducer(self._producer, True)
