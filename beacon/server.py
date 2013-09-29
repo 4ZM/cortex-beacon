@@ -1,5 +1,8 @@
 # Need to import this first to get twisted to play nice with gevent
-import geventreactor; geventreactor.install()
+try:
+    import geventreactor; geventreactor.install()
+except ImportError:
+    print "gevent not available"
 
 from twisted.internet import protocol, reactor, endpoints, interfaces
 
